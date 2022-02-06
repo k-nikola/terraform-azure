@@ -11,5 +11,5 @@ variable "container_group" {
   default = "nikolaContainerGroup"
 }
 variable "container_name" {
-  default = "nksite"
+  default = "nikolanginx"
 }
