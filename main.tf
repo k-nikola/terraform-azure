@@ -22,7 +22,7 @@ resource "azurerm_container_group" "ncg" {
 
   container {
     name   = var.container_name
-    image  = "t0b9/tf-site:1.0"
+    image  = "t0b9/tf-site"
     cpu    = "0.5"
     memory = "0.5"
 
