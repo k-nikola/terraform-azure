@@ -44,7 +44,6 @@ resource "azurerm_container_group" "ncg" {
       MYSQL_ROOT_PASSWORD = var.MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE      = "flask_nikola"
     }
-<<<<<<< HEAD
     volume {
       name                 = "data"
       share_name           = azurerm_storage_share.aci-share.name
@@ -53,21 +52,7 @@ resource "azurerm_container_group" "ncg" {
       read_only            = false
       mount_path           = "/var/lib/mysql/flask_nikola"
     }
-=======
 
-<<<<<<< HEAD
-    volume {
-      name                 = "data"
-      share_name           = azurerm_storage_share.aci-share.name
-      storage_account_name = azurerm_storage_account.aci-sa.name
-      storage_account_key  = azurerm_storage_account.aci-sa.primary_access_key
-      read_only            = false
-      mount_path           = "/var/lib/mysql"
-    }
-
-=======
->>>>>>> 8608f6503db3b4109338198ec3106e66fed8df7f
->>>>>>> 865f389ae4b973339615c46ac7326164686c0e34
   }
   tags = {
     environment = var.environment
