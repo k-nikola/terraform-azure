@@ -5,8 +5,9 @@ terraform {
       version = "=2.91.0"
     }
   }
-  backend "remote" {
+  cloud {
     organization = "k-nikola"
+
     workspaces {
       name = "terraform-azure"
     }
