@@ -68,7 +68,7 @@ resource "azurerm_container_group" "ncg" {
       storage_account_name = azurerm_storage_account.aci-sa.name
       storage_account_key  = azurerm_storage_account.aci-sa.primary_access_key
       read_only            = false
-      mount_path           = "/var/lib/mysql"
+      mount_path           = "/var/lib/mysql/flask_nikola"
     }
   }
   tags = {
