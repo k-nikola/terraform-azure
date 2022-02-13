@@ -45,6 +45,15 @@ resource "azurerm_container_group" "ncg" {
       MYSQL_DATABASE      = "flask_nikola"
     }
 
+    volume {
+      name                 = "data"
+      share_name           = azurerm_storage_share.aci-share.name
+      storage_account_name = azurerm_storage_account.aci-sa.name
+      storage_account_key  = azurerm_storage_account.aci-sa.primary_access_key
+      read_only            = false
+      mount_path           = "/var/lib/mysql"
+    }
+
   }
   tags = {
     environment = var.environment
