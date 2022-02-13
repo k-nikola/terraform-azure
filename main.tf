@@ -39,21 +39,6 @@ resource "azurerm_container_group" "ncg" {
   os_type             = "Linux"
 
   container {
-    name   = var.container_name
-    image  = "t0b9/flask-app-nikola"
-    cpu    = "0.5"
-    memory = "0.5"
-
-    ports {
-      port     = 5000
-      protocol = "TCP"
-    }
-    environment_variables = {
-      db_uri     = var.DB_URI
-      secret_key = var.SECRET_KEY
-    }
-  }
-  container {
     name   = var.db_container_name
     image  = "mysql:5.7"
     cpu    = "0.5"
@@ -71,6 +56,21 @@ resource "azurerm_container_group" "ncg" {
       mount_path           = "/var/lib/mysql"
     }
 
+  }
+  container {
+    name   = var.container_name
+    image  = "t0b9/flask-app-nikola"
+    cpu    = "0.5"
+    memory = "0.5"
+
+    ports {
+      port     = 5000
+      protocol = "TCP"
+    }
+    environment_variables = {
+      db_uri     = var.DB_URI
+      secret_key = var.SECRET_KEY
+    }
   }
   tags = {
     environment = var.environment
