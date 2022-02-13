@@ -48,7 +48,7 @@ resource "azurerm_container_group" "ncg" {
       port     = 5000
       protocol = "TCP"
     }
-    secure_environment_variables = {
+    environment_variables = {
       db_uri     = var.DB_URI
       secret_key = var.SECRET_KEY
     }
@@ -58,7 +58,7 @@ resource "azurerm_container_group" "ncg" {
     image  = "mysql:5.7"
     cpu    = "0.5"
     memory = "0.5"
-    secure_environment_variables = {
+    environment_variables = {
       MYSQL_ROOT_PASSWORD = var.MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE      = "flask_nikola"
     }
